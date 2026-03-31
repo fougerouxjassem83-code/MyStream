@@ -45,34 +45,37 @@ connection.connect((err) => {
     console.log('Connecté à la base de données MySQL !');
 });
 
-// — exporter l'app pour que serveur.js puisse l'utiliser
-module.exports = app;
+// =====================================================
+//  JE VAIS CREER MES ROUTES POUR PASSER DANS MES VUES
+// =====================================================
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-/*par la suite je vais créer mes routes pour pouvoir
- */
-
-// ================================
-// ROUTES ACCUEIL
-// ================================
-
-// Route pour afficher la page d'accueil
-app.get('/api/acceuil.ejs', (req, res) => {
-    console.log("Route /api/acceuil");
-    // On affiche la vue "acceuil.ejs"
+app.get('/accueil', (req, res) => {
+    console.log("je passe dans l'acceuil");
     res.render('acceuil');
 });
 
+app.get('/equipe', (req, res) => {
+    res.render('equipe');
+});
+
+app.get('/inscription', (req, res) => {
+    res.render('inscription');
+});
+
+app.get('/connection', (req, res) => {
+    res.render('connection');
+});
+
+app.get('/abonnement', (req, res) => {
+    res.render('abonnement');
+});
+
+
+
+
+
+
+
+
+// ✅ toujours à la fin
+module.exports = app;
