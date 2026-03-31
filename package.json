@@ -1,0 +1,29 @@
+{
+  "name": "serveur.js",
+  "version": "1.0.0",
+  "description": "C'est mon premier site seul",
+  "keywords": [
+    "infinivie"
+  ],
+  "homepage": "https://github.com/fougerouxjassem83-code/MyStream#readme",
+  "bugs": {
+    "url": "https://github.com/fougerouxjassem83-code/MyStream/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/fougerouxjassem83-code/MyStream.git"
+  },
+  "license": "ISC",
+  "author": "fougeroux-jassemAristid",
+  "type": "commonjs",
+  "main": "serveur.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "dependencies": {
+    "express": "^5.2.1",
+    "express-myconnection": "^1.0.4",
+    "http": "^0.0.1-security",
+    "mysql2": "^3.20.0"
+  }
+}
