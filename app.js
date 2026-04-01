@@ -69,10 +69,12 @@ app.get('/abonnement', (req, res) => {
 
 
 // Je récupère tous les films et animés depuis la table contenu
+//app.get ecoute moi quand tu reçois une requete GET sur le chemin /accueil alors execute la fonction qui suit
 app.get('/accueil', (req, res) => {
     console.log("je passe dans l'acceuil");
 
     // Je récupère tous les contenus depuis ma table contenu
+    //connecte toi sur la vbase de données et fais la requete sql pour récupérer tous les contenus
     connection.query('SELECT * FROM contenu', (err, contenus) => {
         if (err) {
             console.log('Erreur lors de la récupération des contenus :', err);
@@ -82,6 +84,7 @@ app.get('/accueil', (req, res) => {
         res.render('acceuil', { contenus: contenus });
     });
 });
+
 
 
 
