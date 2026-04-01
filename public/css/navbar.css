@@ -1,0 +1,81 @@
+/* ===========================
+   ICI je vais créer le style pour MA NAVBAR - MyStream
+   =========================== */
+
+/* Barre de navigation principale */
+#main {
+    display: flex;               /* les éléments sont alignés en ligne */
+    justify-content: space-between; /* espace entre logo, liens et boutons */
+    align-items: center;         /* centré verticalement */
+    background-color: #111;      /* fond noir */
+    padding: 15px 30px;          /* espacement intérieur */
+    position: sticky;            /* reste en haut quand on scroll */
+    top: 0;                      /* collé en haut */
+    z-index: 999;                /* toujours au dessus des autres éléments */
+}
+
+/* ===========================
+   LOGO
+   =========================== */
+.logo a {
+    color: red;                  /* couleur rouge pour le logo */
+    font-size: 24px;             /* taille du texte */
+    font-weight: bold;           /* texte en gras */
+    text-decoration: none;       /* pas de soulignement */
+}
+
+/* ===========================
+   LIENS DE NAVIGATION
+   =========================== */
+.liens a {
+    color: white;                /* texte blanc */
+    text-decoration: none;       /* pas de soulignement */
+    margin: 0 15px;              /* espace entre chaque lien */
+    font-size: 15px;             /* taille du texte */
+    transition: color 0.2s;      /* animation douce au survol */
+}
+
+/* Couleur rouge au survol des liens */
+.liens a:hover {
+    color: red;
+}
+
+/* ===========================
+   BOUTON INSCRIPTION
+   =========================== */
+.btn-inscription {
+    background-color: transparent; /* fond transparent */
+    color: white;                  /* texte blanc */
+    border: 1px solid white;       /* bordure blanche */
+    padding: 7px 16px;             /* espacement intérieur */
+    border-radius: 5px;            /* coins arrondis */
+    cursor: pointer;               /* curseur en main au survol */
+    margin-right: 10px;            /* espace avec le bouton connexion */
+    font-size: 14px;
+    transition: 0.2s;              /* animation douce */
+}
+
+/* Au survol : fond blanc et texte noir */
+.btn-inscription:hover {
+    background-color: white;
+    color: black;
+}
+
+/* ===========================
+   BOUTON CONNEXION
+   =========================== */
+.btn-connexion {
+    background-color: red;   /* fond rouge */
+    color: white;            /* texte blanc */
+    border: none;            /* pas de bordure */
+    padding: 7px 16px;       /* espacement intérieur */
+    border-radius: 5px;      /* coins arrondis */
+    cursor: pointer;         /* curseur en main au survol */
+    font-size: 14px;
+    transition: 0.2s;        /* animation douce */
+}
+
+/* Au survol : rouge plus foncé */
+.btn-connexion:hover {
+    background-color: darkred;
+}

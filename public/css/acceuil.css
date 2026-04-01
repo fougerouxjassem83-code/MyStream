@@ -1,0 +1,90 @@
+/* ===========================
+    ICI JE VAIS FAIRE LE STYLE POUR MON ACCUEIL - MyStream
+   =========================== */
+
+/* Fond noir pour toute la page */
+body {
+    background-color: black;
+    color: white;
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+/* Titre de bienvenue */
+h1 {
+    text-align: center;
+    color: red;
+    margin: 20px 0;
+}
+
+/* ===========================
+   GRILLE DES CONTENUS
+   =========================== */
+
+/* Grille avec 4 colonnes */
+.grille {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr); /* 4 cartes par ligne */
+    gap: 15px;                              /* espace entre les cartes */
+    padding: 20px;                          /* espace autour de la grille */
+}
+
+/* ===========================
+   CARTE D'UN CONTENU
+   =========================== */
+.carte {
+    background-color: #1a1a1a;  /* fond gris foncé */
+    border-radius: 10px;         /* coins arrondis */
+    overflow: hidden;            /* cache ce qui dépasse */
+    text-align: center;          /* texte centré */
+    padding: 10px;               /* espace intérieur */
+    transition: transform 0.2s;  /* animation au survol */
+}
+
+/* Zoom au survol de la carte */
+.carte:hover {
+    transform: scale(1.05);
+}
+
+/* Image de la carte */
+.carte img {
+    width: 100%;           /* prend toute la largeur */
+    height: 200px;         /* hauteur fixe */
+    object-fit: cover;     /* image bien cadrée */
+    border-radius: 8px;    /* coins arrondis */
+}
+
+/* Titre de la carte */
+.carte h3 {
+    margin: 8px 0 4px;
+    font-size: 14px;
+    color: white;
+}
+
+/* Infos de la carte (genre, année, type) */
+.carte p {
+    font-size: 12px;
+    color: #aaa;          /* gris clair */
+    margin: 2px 0;
+}
+
+/* ===========================
+   BOUTON REGARDER
+   =========================== */
+.btn-regarder {
+    margin-top: 8px;
+    padding: 6px 14px;
+    background-color: red;   /* fond rouge */
+    color: white;             /* texte blanc */
+    border: none;             /* pas de bordure */
+    border-radius: 5px;       /* coins arrondis */
+    cursor: pointer;          /* curseur en main */
+    font-size: 13px;
+    transition: 0.2s;         /* animation douce */
+}
+
+/* Au survol : rouge plus foncé */
+.btn-regarder:hover {
+    background-color: darkred;
+}

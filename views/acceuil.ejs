@@ -3,37 +3,50 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>acceuil</title>
+    <title>Accueil - MyStream</title>
+
+    <!-- Je lie le fichier CSS de la navbar -->
+    <link rel="stylesheet" href="/css/navbar.css">
+
+    <!-- Je lie le fichier CSS de l'accueil -->
+    <link rel="stylesheet" href="/css/acceuil.css">
 </head>
 <body>
-    
 
-<h1>Bienvenue sur la page d'acceuil</h1>
+    <!-- J'inclus la navbar -->
+    <%- include('navbar') %>
 
-<!-- Navbar (sit on top) -->
-<%- include('navbar')-%>
+    <!-- Titre de bienvenue -->
+    <h1>🎬 Bienvenue sur MyStream</h1>
 
+    <!-- Je parcours tous les contenus récupérés depuis ma base de données -->
+    <div class="grille">
+        <% contenus.forEach(function(contenu) { %>
+        <div class="carte">
 
+            <!-- J'affiche l'image depuis l'URL stockée dans ma base de données -->
+            <img src="<%= contenu.image %>" 
+                 onerror="this.src='/images/default.jpg'" 
+                 alt="<%= contenu.titre %>">
 
+            <!-- Je titre du contenu -->
+            <h3><%= contenu.titre %></h3>
 
+            <!-- J'affiche le genre du contenu -->
+            <p>🎭 <%= contenu.genre %></p>
 
+            <!-- J'affiche l'année de sortie -->
+            <p>📅 <%= contenu.annee_sortie %></p>
 
+            <!-- J'affiche le type : film ou animé -->
+            <p>📺 <%= contenu.type %></p>
 
+            <!-- Bouton pour regarder -->
+            <button class="btn-regarder">▶ Regarder</button>
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+        </div>
+        <% }) %>
+    </div>
 
 </body>
 </html>

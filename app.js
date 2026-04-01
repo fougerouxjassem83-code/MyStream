@@ -11,19 +11,19 @@ const mysql = require('mysql2');
 // MIDDLEWARES
 // ================================
 
-// Permet de lire les données envoyées par les formulaires (req.body)
+// Je lis les données envoyées par les formulaires
 app.use(express.urlencoded({ extended: false }));
 
-// Permet de lire les données envoyées en JSON
+// Je lis les données envoyées en JSON
 app.use(express.json());
 
-// Permet de servir les fichiers statiques (CSS, images, JS) depuis le dossier "public"
+// Je sers les fichiers statiques depuis le dossier "public"
 app.use(express.static('public'));
 
-// On indique à Express où se trouvent les vues EJS
+// J'indique à Express où se trouvent mes vues EJS
 app.set('views', './views');
 
-// On indique qu'on utilise EJS comme moteur de vues
+// J'indique qu'on utilise EJS comme moteur de vues
 app.set('view engine', 'ejs');
 
 // ================================
@@ -46,13 +46,8 @@ connection.connect((err) => {
 });
 
 // =====================================================
-//  JE VAIS CREER MES ROUTES POUR PASSER DANS MES VUES
+// JE CRÉE MES ROUTES POUR PASSER DANS MES VUES
 // =====================================================
-
-app.get('/accueil', (req, res) => {
-    console.log("je passe dans l'acceuil");
-    res.render('acceuil');
-});
 
 app.get('/equipe', (req, res) => {
     res.render('equipe');
@@ -73,7 +68,20 @@ app.get('/abonnement', (req, res) => {
 
 
 
+// Je récupère tous les films et animés depuis la table contenu
+app.get('/accueil', (req, res) => {
+    console.log("je passe dans l'acceuil");
 
+    // Je récupère tous les contenus depuis ma table contenu
+    connection.query('SELECT * FROM contenu', (err, contenus) => {
+        if (err) {
+            console.log('Erreur lors de la récupération des contenus :', err);
+            return;
+        }
+        // J'envoie les contenus à ma vue acceuil.ejs
+        res.render('acceuil', { contenus: contenus });
+    });
+});
 
 
 
