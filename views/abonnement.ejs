@@ -33,6 +33,30 @@
             <!-- Prix de l'abonnement -->
             <p class="prix"><%= abonnement.prix %>€ / mois</p>
 
+            <!-- Liste des avantages selon l'abonnement -->
+            <ul class="avantages">
+                <!-- Avantages communs à tous -->
+                <li>✅ Pas de pubs</li>
+                <li>✅ Accès à la bibliothèque MyStream</li>
+
+                <% if (abonnement.titre === 'Basic') { %>
+                    <!-- Avantages Basic -->
+                    <li>✅ <span class="highlight">1 appareil</span> en même temps</li>
+
+                <% } else if (abonnement.titre === 'Standard') { %>
+                    <!-- Avantages Standard -->
+                    <li>✅ <span class="highlight">2 appareils</span> en même temps</li>
+                    <li>✅ Mode hors-ligne</li>
+
+                <% } else if (abonnement.titre === 'Premium') { %>
+                    <!-- Avantages Premium -->
+                    <li>✅ <span class="highlight">4 appareils</span> en même temps</li>
+                    <li>✅ Mode hors-ligne</li>
+                    <li>✅ Qualité 4K</li>
+
+                <% } %>
+            </ul>
+
             <!-- Bouton pour choisir l'abonnement -->
             <button class="btn-souscrire">Choisir</button>
 

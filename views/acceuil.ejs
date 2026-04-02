@@ -33,16 +33,16 @@
             <h3><%= contenu.titre %></h3>
 
             <!-- J'affiche le genre du contenu -->
-            <p>🎭 <%= contenu.genre %></p>
+            <p> <%= contenu.genre %></p>
 
             <!-- J'affiche l'année de sortie -->
-            <p>📅 <%= contenu.annee_sortie %></p>
+            <p> <%= contenu.annee_sortie %></p>
 
             <!-- J'affiche le type : film ou animé -->
-            <p>📺 <%= contenu.type %></p>
+            <p> <%= contenu.type %></p>
 
-            <!-- Bouton pour regarder -->
-            <button class="btn-regarder">▶ Regarder</button>
+            <!-- Bouton qui redirige vers la page abonnement -->
+<a href="/abonnement"><button class="btn-regarder">▶ Regarder</button></a>
 
         </div>
         <% }) %>
