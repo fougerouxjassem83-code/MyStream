@@ -1,26 +1,61 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inscription - MyStream</title>
+
+    <!-- ICI j'appelle le fichier de ma navbar.css -->
     <link rel="stylesheet" href="/css/navbar.css">
-    <title>créer un compte !!!</title>
+
+    <!-- ICI j'appele mon fichier CSS de l'inscription.css -->
+    <link rel="stylesheet" href="/css/inscription.css">
 </head>
 <body>
-    
-<!-- ici j'ai appelé ma navbar -->
-<%- include('navbar')-%>
 
+    <!-- ICI j'appelle ma navbar pour quelle puisse être affichée aussi sur la page d'inscription -->
+    <%- include('navbar') %>
 
+    <!-- Titre de la page -->
+    <h1>Créer un compte</h1>
 
+    <!-- ICI je créer un lien Formulaire d'inscription du client -->
+    <div class="formulaire">
+        <form action="/inscription" method="POST">
 
+            <!-- Champ Nom -->
+            <label>Nom</label>
+            <input type="text" name="nom" placeholder="Votre nom" required>
 
+            <!-- Champ Prénom -->
+            <label>Prénom</label>
+            <input type="text" name="prenom" placeholder="Votre prénom" required>
 
+            <!-- Champ Age -->
+            <label>Age</label>
+            <input type="number" name="age" placeholder="Votre age" required>
 
+            <!-- Champ Téléphone -->
+            <label>Téléphone</label>
+            <input type="text" name="telephone" placeholder="Votre téléphone" required>
 
+            <!-- Champ pour mettre l'email -->
+            <label>Email</label>
+            <input type="email" name="email" placeholder="Votre email" required>
 
+            <!-- Champ Adresse -->
+            <label>Adresse</label>
+            <input type="text" name="adresse" placeholder="Votre adresse" required>
 
+            <!-- Champ Mot de passe -->
+            <label>Mot de passe</label>
+            <input type="password" name="mot_de_passe" placeholder="Votre mot de passe" required>
 
+            <!-- ICI je créer le bouton pour s'inscrire -->
+            <button type="submit">S'inscrire</button>
+
+        </form>
+    </div>
 
 </body>
 </html>

@@ -3,21 +3,42 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Abonnement</title>
+    <title>Abonnement - MyStream</title>
+
+    <!-- ICI j'appelle le fichier de ma navbar.css -->
     <link rel="stylesheet" href="/css/navbar.css">
+
+    <!-- ICI j'appelle mon fichier CSS de l'abonnement -->
+    <link rel="stylesheet" href="/css/abonnement.css">
 </head>
 <body>
-    
-<!-- ici j'ai appelé ma navbar -->
-<%- include('navbar') %>
 
+    <!-- ICI j'appelle ma navbar -->
+    <%- include('navbar') %>
 
+    <!-- Titre de la page -->
+    <h1>💳 Nos Abonnements</h1>
 
+    <!-- ICI j'affiche les offres d'abonnement -->
+    <div class="abonnements">
+        <% abonnements.forEach(function(abonnement) { %>
+        <div class="carte-abonnement">
 
+            <!-- Titre de l'abonnement -->
+            <h2><%= abonnement.titre %></h2>
 
+            <!-- Nombre de Go inclus -->
+            <p class="go"><%= abonnement.nombre_go %> Go</p>
 
+            <!-- Prix de l'abonnement -->
+            <p class="prix"><%= abonnement.prix %>€ / mois</p>
 
+            <!-- Bouton pour choisir l'abonnement -->
+            <button class="btn-souscrire">Choisir</button>
 
+        </div>
+        <% }) %>
+    </div>
 
 </body>
 </html>

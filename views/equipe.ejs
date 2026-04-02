@@ -4,45 +4,59 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Notre Équipe</title>
+
+    <!-- ICI j'appelle le fichier de ma navbar.css -->
     <link rel="stylesheet" href="/css/navbar.css">
+
+    <!-- ICI j'appelle mon fichier CSS de l'equipe -->
+    <link rel="stylesheet" href="/css/equipe.css">
 </head>
 <body>
-    <!-- ici j'ai appelé ma navbar -->
-<%- include('navbar') %>
 
+    <!-- ICI j'appelle ma navbar -->
+    <%- include('navbar') %>
 
+    <!-- Titre de la page -->
+    <div class="explication">
+         <h1>Notre Équipe</h1>
     <h1>Rencontrez notre équipe exceptionnelle !</h1>
-    <p>Notre équipe est composée de professionnels passionnés et dévoués, chacun apport
+    <p>Notre équipe est composée de professionnels passionnés et dévoués, chacun apportant son expertise pour vous offrir la meilleure expérience possible.</p>
 
-
+    <!-- Notre Mission -->
     <h2>Notre Mission</h2>
     <p>Chez MyStream, notre mission est de fournir une expérience de streaming inégalée, en offrant une vaste bibliothèque de contenus de qualité et un service client exceptionnel.</p>
 
+    <!-- Nos Valeurs -->
     <h2>Nos Valeurs</h2>
     <ul>
-        <li><strong>Innovation :</strong> Nous sommes constamment à la recherche de nouvelles façons d'améliorer notre plateforme et d'offrir des fonctionnalités innovantes à nos utilisateurs.</li>
-        <li><strong>Qualité :</strong> Nous nous engageons à fournir des contenus de haute qualité et une expérience utilisateur exceptionnelle.</li>
-        <li><strong>Accessibilité :</strong> Nous croyons que le divertissement devrait être accessible à tous, c'est pourquoi nous nous efforçons de rendre notre plateforme facile à utiliser pour tous les âges et tous les niveaux de compétence technologique.</li>
-        <li><strong>Engagement envers la communauté :</strong> Nous valorisons notre communauté d'utilisateurs et nous nous engageons à écouter leurs besoins et à répondre à leurs attentes.</li>
+        <li><strong>Innovation :</strong> Nous sommes constamment à la recherche de nouvelles façons d'améliorer notre plateforme.</li>
+        <li><strong>Qualité :</strong> Nous nous engageons à fournir des contenus de haute qualité.</li>
+        <li><strong>Accessibilité :</strong> Nous croyons que le divertissement devrait être accessible à tous.</li>
+        <li><strong>Engagement envers la communauté :</strong> Nous valorisons notre communauté d'utilisateurs.</li>
     </ul>
-
-    <h2>Rencontrez l'Équipe</h2>
-    <p>Notre équipe est composée de professionnels talentueux dans les domaines du développement, du design, du marketing et du service client. Chacun d'entre eux joue un rôle crucial dans le succès de MyStream.</p>
+    </div>
 
 
+    <!-- ICI j'affiche les membres depuis ma base de données -->
+    <div class="equipe">
+        <% equipe.forEach(function(membre) { %>
+        <div class="carte-membre">
 
+            <!-- Nom et prénom du membre -->
+            <h2><%= membre.nom %> <%= membre.prenom %></h2>
 
+            <!-- Fonction du membre -->
+            <p class="fonction"><%= membre.fonction %></p>
 
+            <!-- Email du membre -->
+            <p class="email">📧 <%= membre.email %></p>
 
+            <!-- Téléphone du membre -->
+            <p class="telephone">📞 <%= membre.telephone %></p>
 
-
-
-
-
-
-
-
-
+        </div>
+        <% }) %>
+    </div>
 
 </body>
 </html>

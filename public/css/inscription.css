@@ -1,5 +1,5 @@
 /* ===========================
-   J'ECRIS LE STYLE DE MA PAGE CONNEXION - MyStream
+   J'ECRIS LE STYLE DE MA PAGE INSCRIPTION - MyStream
    =========================== */
 
 /* Je mets un fond noir pour toute la page */
@@ -70,31 +70,4 @@ button {
 /* Au survol : rouge plus foncé */
 button:hover {
     background-color: darkred;
-}
-
-/* Je style le message d'erreur */
-.erreur {
-    color: red;
-    text-align: center;
-    margin-bottom: 10px;
-    font-size: 14px;
-}
-
-/* Je style le lien vers l'inscription */
-.lien {
-    text-align: center;
-    margin-top: 15px;
-    color: #aaa;
-    font-size: 14px;
-}
-
-/* Je style le lien */
-.lien a {
-    color: red;
-    text-decoration: none;
-}
-
-/* Au survol : souligné */
-.lien a:hover {
-    text-decoration: underline;
 }

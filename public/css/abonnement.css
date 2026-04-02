@@ -1,5 +1,5 @@
 /* ===========================
-   J'ECRIS LE STYLE DE MA PAGE EQUIPE - MyStream
+   J'ECRIS LE STYLE DE MA PAGE ABONNEMENT - MyStream
    =========================== */
 
 /* Je mets un fond noir pour toute la page */
@@ -19,69 +19,65 @@ h1 {
 }
 
 /* ===========================
-   JE CRÉE LA GRILLE DE L'EQUIPE
+   JE CRÉE LA GRILLE DES ABONNEMENTS
    =========================== */
 
-/* J'affiche les cartes en grille */
-.equipe {
+/* J'affiche les cartes en ligne */
+.abonnements {
     display: flex;
     justify-content: center;
-    flex-wrap: wrap;
     gap: 30px;
     padding: 40px 20px;
 }
 
 /* ===========================
-   CARTE D'UN MEMBRE
+   CARTE D'UN ABONNEMENT
    =========================== */
-.carte-membre {
+.carte-abonnement {
     background-color: #1a1a1a;
     border-radius: 10px;
-    padding: 30px;
+    padding: 40px 30px;
     text-align: center;
     width: 250px;
     transition: transform 0.2s;
 }
 
 /* Je zoom au survol */
-.carte-membre:hover {
+.carte-abonnement:hover {
     transform: scale(1.05);
     border: 1px solid red;
 }
 
-/* Je style le nom du membre */
-.carte-membre h2 {
+/* Je style le titre de l'abonnement */
+.carte-abonnement h2 {
     color: red;
-    font-size: 18px;
-    margin-bottom: 10px;
+    font-size: 24px;
+    margin-bottom: 15px;
 }
 
-/* Je style la fonction du membre */
-.fonction {
-    font-size: 14px;
-    color: #aaa;
-    margin-bottom: 10px;
-}
-
-/* Je style l'email du membre */
-.email {
-    font-size: 13px;
+/* Je style le nombre de Go */
+.go {
+    font-size: 40px;
+    font-weight: bold;
     color: white;
-    margin-bottom: 5px;
-}
-
-/* Je style le téléphone du membre */
-.telephone {
-    font-size: 13px;
-    color: white;
+    margin-bottom: 20px;
 }
 
 /* ===========================
-   EXPLICATIONS
+   BOUTON CHOISIR
    =========================== */
-.explication {
-    max-width: 800px;
-    margin: 0 auto;
-    padding: 20px;
-    text-align: center;
+.btn-souscrire {
+    padding: 10px 25px;
+    background-color: red;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: 0.2s;
+}
+
+/* Au survol : rouge plus foncé */
+.btn-souscrire:hover {
+    background-color: darkred;
 }

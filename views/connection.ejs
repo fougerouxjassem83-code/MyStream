@@ -3,38 +3,48 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>connecter vous</title>
+    <title>Connexion - MyStream</title>
+
+    <!-- ICI j'appelle le fichier de ma navbar.css -->
     <link rel="stylesheet" href="/css/navbar.css">
+
+    <!-- ICI j'appelle mon fichier CSS de la connexion -->
+    <link rel="stylesheet" href="/css/connection.css">
 </head>
 <body>
- 
-<!-- ici j'ai appelé ma navbar -->
-<%- include('navbar') %>
 
+    <!-- ICI j'appelle ma navbar -->
+    <%- include('navbar') %>
 
+    <!-- Titre de la page -->
+    <h1>Se connecter</h1>
 
+    <!-- ICI je crée mon formulaire de connexion -->
+    <div class="formulaire">
+        <form action="/connection" method="POST">
 
+            <!-- Champ Email -->
+            <label>Email</label>
+            <input type="email" name="email" placeholder="Votre email" required>
 
+            <!-- Champ Mot de passe -->
+            <label>Mot de passe</label>
+            <input type="password" name="mot_de_passe" placeholder="Votre mot de passe" required>
 
+            <!-- Message d'erreur si les identifiants sont incorrects -->
+            <% if (erreur) { %>
+                <p class="erreur"><%= erreur %></p>
+            <% } %>
 
+            <!-- ICI je crée le bouton pour se connecter -->
+            <button type="submit">Se connecter</button>
 
+        </form>
 
+        <!-- Lien vers la page d'inscription -->
+        <p class="lien">Pas encore de compte ? <a href="/inscription">S'inscrire</a></p>
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+    </div>
 
 </body>
 </html>
