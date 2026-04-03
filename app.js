@@ -7,6 +7,9 @@ const app = express();
 // ICI je declare une variable pour importer mysql2 pour se connecter à la base de données MySQL
 const mysql = require('mysql2');
 
+// J'importe le module express-session pour gérer les sessions
+const session = require('express-session');
+
 // Je lis les données envoyées par les formulaires
 app.use(express.urlencoded({ extended: false }));
 
@@ -15,6 +18,13 @@ app.use(express.json());
 
 // Je sers les fichiers statiques depuis le dossier "public"
 app.use(express.static('public'));
+
+// Je configure les sessions
+app.use(session({
+    secret: 'mystream_secret',  // Ma clé secrète pour sécuriser la session
+    resave: false,
+    saveUninitialized: false
+}));
 
 // J'indique à Express où se trouvent mes vues EJS
 app.set('views', './views');
@@ -122,8 +132,8 @@ app.post('/inscription', (req, res) => {
                 console.log('Erreur lors de l inscription :', err);
                 return;
             }
-            // Je redirige vers la page de l'acceuil après l'inscription
-            res.redirect('/accueil');
+            // Je redirige vers la page de connexion après l'inscription
+            res.redirect('/connection');
         }
     );
 });
@@ -151,6 +161,8 @@ app.post('/connection', (req, res) => {
 
             // Si je trouve un client avec cet email et mot de passe
             if (resultats.length > 0) {
+                // Je sauvegarde le client dans la session
+                req.session.client = resultats[0];
                 // Je redirige vers la page d'accueil
                 res.redirect('/accueil');
             } else {
@@ -161,9 +173,43 @@ app.post('/connection', (req, res) => {
     );
 });
 
+/*====================================================================*/
+/* ICI JE VAIS CREER MA ROUTE POST POUR LA SOUSCRIPTION
+/*====================================================================*/
+
+// Je gère la souscription d'un client à un abonnement
+app.post('/souscrire', (req, res) => {
+
+    // Je vérifie si le client est connecté
+    if (!req.session.client) {
+        // S'il n'est pas connecté je le redirige vers la page de connexion
+        res.redirect('/connection');
+        return;
+    }
+
+    // Je récupère l'id de l'abonnement choisi
+    const id_abonnement = req.body.id_abonnement;
+
+    // Je récupère l'id du client depuis la session
+    const id_client = req.session.client.id_client;
+
+    // J'insère la souscription dans ma table souscription
+    connection.query(
+        'INSERT INTO souscription (id_client, id_abonnement, date_souscription) VALUES (?, ?, NOW())',
+        [id_client, id_abonnement],
+        (err) => {
+            if (err) {
+                console.log('Erreur lors de la souscription :', err);
+                return;
+            }
+            // Je redirige vers la page d'accueil après la souscription
+            res.redirect('/accueil');
+        }
+    );
+});
+
 // toujours à la fin
 module.exports = app;
-
 
 
 
