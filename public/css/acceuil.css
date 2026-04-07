@@ -116,3 +116,58 @@ h1 {
 .carte a {
     text-decoration: none;
 }
+
+
+
+/* ===========================
+   ici je vaire faire le style de ma popup
+   =========================== */
+
+   /* ===========================
+   POPUP BANDE ANNONCE
+   =========================== */
+
+/* Je cache la popup par défaut */
+.popup {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.85);
+    z-index: 1000;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Je style le contenu de la popup */
+.popup-contenu {
+    background-color: #1a1a1a;
+    border-radius: 12px;
+    padding: 20px;
+    width: 70%;
+    position: relative;
+}
+
+/* Je style le bouton pour fermer la popup */
+.btn-fermer {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background-color: red;
+    color: white;
+    border: none;
+    border-radius: 50%;
+    width: 35px;
+    height: 35px;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: bold;
+    transition: 0.2s;
+}
+
+/* Au survol : rouge plus foncé */
+.btn-fermer:hover {
+    background-color: darkred;
+}

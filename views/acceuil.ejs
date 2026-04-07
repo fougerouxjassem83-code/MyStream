@@ -17,36 +17,66 @@
     <%- include('navbar') %>
 
     <!-- Titre de bienvenue -->
-    <h1> Bienvenue sur MyStream</h1>
+    <h1>🎬 Bienvenue sur MyStream</h1>
 
     <!-- Je parcours tous les contenus récupérés depuis ma base de données -->
     <div class="grille">
         <% contenus.forEach(function(contenu) { %>
-        <div class="carte">
+
+        <!-- Chaque carte est cliquable et ouvre la popup avec le trailer -->
+        <div class="carte" onclick="ouvrirPopup('<%= contenu.trailer %>')">
 
             <!-- J'affiche l'image depuis l'URL stockée dans ma base de données -->
             <img src="<%= contenu.image %>" 
                  onerror="this.src='/images/default.jpg'" 
                  alt="<%= contenu.titre %>">
 
-            <!-- Je titre du contenu -->
-            <h3><%= contenu.titre %></h3>
+            <!-- Je regroupe les infos du contenu -->
+            <div class="carte-infos">
 
-            <!-- J'affiche le genre du contenu -->
-            <p> <%= contenu.genre %></p>
+                <!-- J'affiche le titre du contenu -->
+                <h3><%= contenu.titre %></h3>
 
-            <!-- J'affiche l'année de sortie -->
-            <p> <%= contenu.annee_sortie %></p>
+                <!-- J'affiche le genre du contenu -->
+                <p><%= contenu.genre %></p>
 
-            <!-- J'affiche le type : film ou animé -->
-            <p> <%= contenu.type %></p>
+                <!-- J'affiche l'année de sortie -->
+                <p><%= contenu.annee_sortie %></p>
+
+                <!-- J'affiche le type : film ou animé -->
+                <p><%= contenu.type %></p>
+
+            </div>
 
             <!-- Bouton qui redirige vers la page abonnement -->
-<a href="/abonnement"><button class="btn-regarder">▶ Regarder</button></a>
+            <a href="/abonnement"><button class="btn-regarder">▶ Regarder</button></a>
 
         </div>
         <% }) %>
     </div>
 
+    <!-- Je crée la popup qui s'affiche au clic sur une carte -->
+    <div class="popup" id="popup">
+        <div class="popup-contenu">
+
+            <!-- Bouton pour fermer la popup -->
+            <button class="btn-fermer" onclick="fermerPopup()">✖</button>
+
+            <!-- J'affiche la bande annonce YouTube dans un iframe -->
+            <iframe id="trailer"
+                    width="100%"
+                    height="450"
+                    src=""
+                    frameborder="0"
+                    allowfullscreen>
+            </iframe>
+
+        </div>
+    </div>
+
+    
 </body>
-</html
+<!-- Je lie le fichier JavaScript pour gérer la popup -->
+<!-- J'appelle mon fichier JavaScript -->
+<script src="/javascript/script.js"></script>
+</html>
