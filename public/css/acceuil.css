@@ -2,89 +2,117 @@
     ICI JE VAIS FAIRE LE STYLE POUR MON ACCUEIL - MyStream
    =========================== */
 
-/* Fond noir pour toute la page */
+/* Je mets un fond noir pour toute la page */
 body {
-    background-color: black;
+    background-color: #0a0a0a;
     color: white;
     font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
 }
 
-/* Titre de bienvenue */
+/* Je centre le titre de bienvenue */
 h1 {
     text-align: center;
     color: red;
     margin: 20px 0;
+    font-size: 28px;
+    letter-spacing: 2px;
 }
 
 /* ===========================
    GRILLE DES CONTENUS
    =========================== */
 
-/* Grille avec 4 colonnes */
+/* Je crée une grille avec 4 colonnes */
 .grille {
     display: grid;
-    grid-template-columns: repeat(4, 1fr); /* 4 cartes par ligne */
-    gap: 15px;                              /* espace entre les cartes */
-    padding: 20px;                          /* espace autour de la grille */
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+    padding: 30px;
 }
 
 /* ===========================
    CARTE D'UN CONTENU
    =========================== */
+
+/* Je style chaque carte */
 .carte {
-    background-color: #1a1a1a;  /* fond gris foncé */
-    border-radius: 10px;         /* coins arrondis */
-    overflow: hidden;            /* cache ce qui dépasse */
-    text-align: center;          /* texte centré */
-    padding: 10px;               /* espace intérieur */
-    transition: transform 0.2s;  /* animation au survol */
+    background-color: #141414;
+    border-radius: 12px;
+    overflow: hidden;
+    text-align: center;
+    transition: transform 0.3s, box-shadow 0.3s;
+    position: relative;
+    cursor: pointer;
 }
 
-/* Zoom au survol de la carte */
+/* Je zoom la carte au survol avec une ombre rouge */
 .carte:hover {
     transform: scale(1.05);
+    box-shadow: 0 8px 25px rgba(255, 0, 0, 0.4);
 }
 
-/* Image de la carte */
+/* Je style l'image de la carte */
 .carte img {
-    width: 100%;           /* prend toute la largeur */
-    height: 200px;         /* hauteur fixe */
-    object-fit: cover;     /* image bien cadrée */
-    border-radius: 8px;    /* coins arrondis */
+    width: 100%;
+    height: 280px;
+    object-fit: cover;
+    display: block;
+    transition: opacity 0.3s;
 }
 
-/* Titre de la carte */
-.carte h3 {
-    margin: 8px 0 4px;
-    font-size: 14px;
+/* Je rends l'image un peu transparente au survol */
+.carte:hover img {
+    opacity: 0.7;
+}
+
+/* Je crée une zone d'infos en bas de la carte */
+.carte-infos {
+    padding: 12px;
+    background-color: #141414;
+}
+
+/* Je style le titre de la carte */
+.carte-infos h3 {
+    margin: 0 0 6px;
+    font-size: 15px;
     color: white;
+    font-weight: bold;
 }
 
-/* Infos de la carte (genre, année, type) */
-.carte p {
+/* Je style les infos de la carte */
+.carte-infos p {
     font-size: 12px;
-    color: #aaa;          /* gris clair */
-    margin: 2px 0;
+    color: #aaa;
+    margin: 3px 0;
 }
 
 /* ===========================
    BOUTON REGARDER
    =========================== */
+
+/* Je style le bouton regarder */
 .btn-regarder {
-    margin-top: 8px;
-    padding: 6px 14px;
-    background-color: red;   /* fond rouge */
-    color: white;             /* texte blanc */
-    border: none;             /* pas de bordure */
-    border-radius: 5px;       /* coins arrondis */
-    cursor: pointer;          /* curseur en main */
-    font-size: 13px;
-    transition: 0.2s;         /* animation douce */
+    display: block;
+    width: 90%;
+    margin: 10px auto;
+    padding: 8px 0;
+    background-color: red;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: bold;
+    transition: 0.2s;
 }
 
 /* Au survol : rouge plus foncé */
 .btn-regarder:hover {
     background-color: darkred;
+}
+/* Je supprime le soulignement du lien autour du bouton */
+.carte a {
+    text-decoration: none;
 }

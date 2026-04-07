@@ -15,7 +15,7 @@ const serveur = http.createServer(app);
 const numPort = 1976;
 console.log("numero de mon port :", numPort);
 
-// ✅ CORRECTION ICI — app.set() prend 2 arguments : un nom et une valeur
+// CORRECTION ICI — app.set() prend 2 arguments : un nom et une valeur
 app.set('port', numPort);
 
 // je démarre le serveur
